@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Event Deligation</h1>
+    <section class="ps-5">
+        <ul id="ul-container">
+            <li>Lorem, ipsum dolor.</li>
+            <li>Cum, molestiae eius!</li>
+            <li>Ut, veritatis expedita.</li>
+            <li>Dicta, doloribus eius.</li>
+            <li>Veniam, iusto quaerat?</li>
+        </ul>
+        <button id="add-new" class="btn btn-danger">Add Item</button>
+    </section>
+
+    <script>
+        // add event listener for the ul container
+        document.getElementById('ul-container').addEventListener('click', function () {
+            event.target.parentNode.removeChild(event.target);
+        });
+        // add event listener for the add item btn
+        document.getElementById('add-new').addEventListener('click', function () {
+            const ulContainer = document.getElementById('ul-container');
+            const newLi = document.createElement('li');
+            newLi.innerText = 'Brand new Item';
+            ulContainer.appendChild(newLi)
+        })
+    </script>
+</body>
+
+</html>

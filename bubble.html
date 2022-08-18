@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body id="body">
+    <section id="section-container" class="container">
+        <h1>Event Babble</h1>
+        <ul id="list-container">
+            <li id="list-1">Lorem, ipsum.</li>
+            <li id="list-2">Perspiciatis, ducimus?</li>
+            <li id="list-3">Blanditiis, voluptatum.</li>
+            <li id="list-4">Accusantium, soluta?</li>
+            <li id="list-5">Deserunt, reiciendis.</li>
+        </ul>
+    </section>
+
+    <script>
+        document.getElementById('list-1').addEventListener('click', function (event) {
+            console.log('list-1 is clicked');
+            event.stopImmediatePropagation()
+        })
+        document.getElementById('list-1').addEventListener('click', function (event) {
+            console.log('list-1 second is clicked');
+            // event.stopPropagation()
+        })
+        document.getElementById('list-1').addEventListener('click', function (event) {
+            console.log('list-1 third is clicked');
+            event.stopImmediatePropagation()
+        })
+        document.getElementById('list-container').addEventListener('click', function () {
+            console.log('list-container is clicked')
+        })
+        document.getElementById('section-container').addEventListener('click', function () {
+            console.log('section-container is clicked')
+        })
+        document.getElementById('body').addEventListener('click', function () {
+            console.log('body is clicked')
+        })
+
+    </script>
+
+</body>
+
+</html>

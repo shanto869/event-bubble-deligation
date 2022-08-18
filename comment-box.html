@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM</title>
+</head>
+
+<body>
+    <section id="comment-container">
+        <textarea name="" id="comment-box" cols="40" rows="7"></textarea>
+        <button id="post-btn">Post</button>
+    </section>
+
+
+    <script>
+        document.getElementById('post-btn').addEventListener('click', function () {
+            // get the comment from the comment box
+            const commentBox = document.getElementById('comment-box');
+            const newComment = commentBox.value;
+
+            // insert p tag for add new comment 
+            const commentContainer = document.getElementById('comment-container');
+            const p = document.createElement('p')
+            commentContainer.appendChild(p)
+
+            p.innerText = newComment;
+            commentBox.value = ''
+            console.log(p)
+        })
+    </script>
+</body>
+
+</html>
